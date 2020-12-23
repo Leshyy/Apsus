@@ -1,5 +1,5 @@
-/* cmps */
-@import './cmps/AppHeader.css';
-
 /* base */
 @import './basics/base.css';
+
+/* cmps */
+@import './basics/AppHeader.css';
