@@ -3,3 +3,7 @@
 
 /* cmps */
 @import './basics/AppHeader.css';
+
+/* apps */
+
+@import '../../apps/Email/assets/css/email-main.css';

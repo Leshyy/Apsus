@@ -4,6 +4,7 @@ import { utilService } from '../../../services/utilService.js';
 export const emailService = {
     query,
     getEmailById,
+    markAsRead,
 };
 
 const EMAIL_KEY = 'emails';
@@ -13,11 +14,11 @@ let gEmails;
 
 _createEmails();
 
-function createEmail(sender, receiver, subject, body) {
+function createEmail(sender, receivers, subject, body) {
     return {
         id: utilService.makeId(),
         sender,
-        receiver,
+        receivers,
         subject,
         body,
         isRead: false,
@@ -43,9 +44,11 @@ function remove(emailId) {
 }
 
 function markAsRead(emailId) {
-    const email = getEmailById(emailId);
-    email.isRead = true;
-    storageService.save(gEmails, EMAIL_KEY);
+    getEmailById(emailId).then((email) => {
+        email.isRead = true;
+        storageService.save(gEmails, EMAIL_KEY);
+    });
+    return Promise.resolve();
 }
 
 function _createEmails() {

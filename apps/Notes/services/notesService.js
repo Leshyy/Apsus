@@ -4,7 +4,7 @@ import { utilService } from '../../../services/utilService.js';
 export const notesService = {
     query,
     getNoteById,
-    removeNote
+    removeNote,
 };
 
 const NOTES_KEY = 'notes';
@@ -55,6 +55,20 @@ function _getDemoNotes() {
         createNote('NoteText', { txt: 'Tamir is Esh!' }),
         createNote('NoteImg', { url: '', title: 'wow nice pic' }),
         createNote('NoteVid', { url: '', title: 'nice song' }),
-        createNote('NoteTodos', { label: 'things for sprint', todos: [{ id: utilService.makeId(), txt: 'finish preview', doneAt: null }, { id: utilService.makeId(), txt: 'buy tamir a gift', doneAt: Date.now() }] })
+        createNote('NoteTodos', {
+            label: 'things for sprint',
+            todos: [
+                {
+                    id: utilService.makeId(),
+                    txt: 'finish preview',
+                    doneAt: null,
+                },
+                {
+                    id: utilService.makeId(),
+                    txt: 'buy tamir a gift',
+                    doneAt: Date.now(),
+                },
+            ],
+        }),
     ];
 }
