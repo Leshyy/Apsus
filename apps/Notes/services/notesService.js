@@ -1,13 +1,13 @@
-import { storageService } from '../../../services/storageService.js';
-import { utilService } from '../../../services/utilService.js';
+import { storageService } from "../../../services/storageService.js";
+import { utilService } from "../../../services/utilService.js";
 
 export const notesService = {
     query,
     getNoteById,
-    removeNote
+    removeNote,
 };
 
-const NOTES_KEY = 'notes';
+const NOTES_KEY = "notes";
 
 // app data
 let gNotes;
@@ -17,9 +17,14 @@ _createNotes();
 function createNote(type, info) {
     return {
         id: utilService.makeId(),
+        isPinned: false,
         type,
         info,
         createdAt: Date.now(),
+        style: {
+            backgroundColor: '',
+            fontColor: ''
+        }
     };
 }
 
@@ -52,9 +57,21 @@ function _createNotes() {
 
 function _getDemoNotes() {
     return [
-        createNote('NoteText', { txt: 'Tamir is Esh!' }),
-        createNote('NoteImg', { url: '', title: 'wow nice pic' }),
-        createNote('NoteVid', { url: '', title: 'nice song' }),
-        createNote('NoteTodos', { label: 'things for sprint', todos: [{ id: utilService.makeId(), txt: 'finish preview', doneAt: null }, { id: utilService.makeId(), txt: 'buy tamir a gift', doneAt: Date.now() }] })
+        createNote("NoteText", { txt: "Tamir is Esh!" }),
+        createNote("NoteText", { txt: "Eran is Water!" }),
+        createNote("NoteText", { txt: "Margad is Earth!" })
+        // createNote("NoteImg", { url: "", title: "wow nice pic" }),
+        // createNote("NoteVid", { url: "", title: "nice song" }),
+        // createNote("NoteTodos", {
+        //     label: "things for sprint",
+        //     todos: [
+        //         { id: utilService.makeId(), txt: "finish preview", doneAt: null },
+        //         {
+        //             id: utilService.makeId(),
+        //             txt: "buy tamir a gift",
+        //             doneAt: Date.now(),
+        //         },
+        //     ],
+        // }),
     ];
 }

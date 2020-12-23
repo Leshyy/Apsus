@@ -1,9 +1,30 @@
-import { notesService } from './services/notesService.js'
+import { notesService } from "./services/notesService.js";
+import { NoteList } from "./cmps/NoteList.jsx";
 
-export function NotesApp() {
+export class NotesApp extends React.Component {
+  state = {
+    notes: [],
+  };
+
+  componentDidMount() {
+    this.loadNotes();
+  }
+
+  loadNotes = () => {
+    notesService.query().then((notes) => {
+      console.log(notes);
+      this.setState({ notes });
+    });
+  };
+
+  render() {
     return (
+      <section>
+        <h2>Notes App</h2>
         <section>
-            <h2>Notes App</h2>
+          {this.state.notes.length && <NoteList notes={this.state.notes} />}
         </section>
+      </section>
     );
+  }
 }

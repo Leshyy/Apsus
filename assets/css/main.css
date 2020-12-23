@@ -1,5 +1,8 @@
 /* base */
+
 @import './basics/base.css';
 
 /* cmps */
+
 @import './basics/AppHeader.css';
+@import '/apps/Notes/assets/css/notes-main.css';
