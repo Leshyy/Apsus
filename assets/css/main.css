@@ -1,9 +1,12 @@
 /* base */
+
 @import './basics/base.css';
 
 /* cmps */
+
 @import './basics/AppHeader.css';
 
 /* apps */
 
 @import '../../apps/Email/assets/css/email-main.css';
+@import '../../apps/Notes/assets/css/notes-main.css';
