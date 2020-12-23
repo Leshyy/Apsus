@@ -1,3 +1,5 @@
+import { emailService } from './services/emailService.js';
+
 export function EmailApp() {
     return (
         <section>
