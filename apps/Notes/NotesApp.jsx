@@ -1,3 +1,5 @@
+import { notesService } from './services/notesService.js'
+
 export function NotesApp() {
     return (
         <section>
