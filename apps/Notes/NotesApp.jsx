@@ -17,12 +17,17 @@ export class NotesApp extends React.Component {
     });
   };
 
+  onRemove=(noteId)=>{
+    notesService.removeNote(noteId).then(()=>{
+    this.loadNotes()})
+  }
+
   render() {
     return (
       <section>
         <h2>Notes App</h2>
         <section>
-          {this.state.notes.length && <NoteList notes={this.state.notes} />}
+          {this.state.notes.length && <NoteList notes={this.state.notes} onRemove={this.onRemove}/>}
         </section>
       </section>
     );

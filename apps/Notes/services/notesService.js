@@ -41,8 +41,8 @@ function add() {}
 
 function removeNote(noteId) {
     gNotes = gNotes.filter((note) => noteId !== note.id);
-    storageService.save(gNotes, EMAIL_KEY);
-    // return Promise.resolve(gNotes);
+    storageService.save(gNotes, NOTES_KEY);
+    return Promise.resolve();
 }
 
 function _createNotes() {
