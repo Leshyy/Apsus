@@ -1,3 +1,4 @@
+import { EmailDetails } from './cmps/EmailDetails.jsx';
 import { EmailList } from './cmps/EmailList.jsx';
 import { emailService } from './services/emailService.js';
 
@@ -28,6 +29,7 @@ export class EmailApp extends React.Component {
         return (
             <section>
                 <h2>Email App</h2>
+                <Route path="/email/:emailId" component={EmailDetails} />
                 <EmailList emails={emails} onReadEmail={this.onReadEmail} />
             </section>
         );
