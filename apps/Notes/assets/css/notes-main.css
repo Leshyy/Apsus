@@ -1,2 +1,45 @@
-@import './notes-list.css';
-@import './notes-preview.css';
+@import "./notes-list.css";
+@import "./notes-preview.css";
+.notes-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-end;
+    margin-top: 50px;
+    margin-right: 25px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.notes-form input {
+    border: 1px solid lightgray;
+    padding: 5px;
+    width: 50%;
+    background-color: rgb(245, 244, 243);
+    border-radius: 1px;
+}
+
+.notes-form textarea {
+    border: 1px solid lightgrey;
+    border-top: none;
+    padding: 5px;
+    flex-grow: 1;
+    width: 50%;
+    height: 70px;
+    background-color: rgb(245, 244, 243);
+    border-radius: 1px;
+}
+
+.notes-form input:focus {
+    outline-color: rgb(127, 195, 127);
+    outline-width: 0.01rem;
+}
+
+.notes-form textarea:focus {
+    outline-color: rgb(127, 195, 127);
+    outline-width: 0.01rem;
+}
+
+.notes-inputs {
+    display: flex;
+}

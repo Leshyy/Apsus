@@ -53,7 +53,6 @@ export class EmailApp extends React.Component {
             console.log('no empty fields allowed!');
             return;
         }
-        console.log('added email');
         emailService.add(email).then(() => {
             this.loadEmails();
         });
