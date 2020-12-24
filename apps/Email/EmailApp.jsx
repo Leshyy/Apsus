@@ -10,7 +10,7 @@ const { Route, Switch } = ReactRouterDOM;
 export class EmailApp extends React.Component {
     state = {
         emails: [],
-        composeEmail: false,
+        showComposeEmail: false,
     };
     componentDidMount() {
         this.loadEmails();
@@ -44,7 +44,7 @@ export class EmailApp extends React.Component {
     };
 
     showComposeEmail = () => {
-        this.setState({ composeEmail: !this.state.composeEmail });
+        this.setState({ showComposeEmail: !this.state.showComposeEmail });
     };
     onAddEmail = (ev, email) => {
         ev.preventDefault();
@@ -62,9 +62,8 @@ export class EmailApp extends React.Component {
         const { emails } = this.state;
         return (
             <section>
-                <h2>Email App</h2>
                 <button onClick={this.showComposeEmail}>Compose</button>
-                {this.state.composeEmail && (
+                {this.state.showComposeEmail && (
                     <EmailAdd onAddEmail={this.onAddEmail} />
                 )}
                 {/* TODO - unread emails fix it */}

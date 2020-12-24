@@ -1,3 +1,26 @@
 .email-details {
     color: rgb(41, 41, 41);
+    background-color: rgb(134, 189, 125);
+    box-shadow: rgb(134 167 149) 0 2px 10px 3px;
+}
+
+.email-details h1 {
+    border-bottom: rgb(41, 41, 41) 1px solid;
+    font-size: 2.2rem;
+    margin: 0;
+}
+.email-details h2 {
+    font-size: 1.5rem;
+    font-weight: normal;
+}
+
+.email-details button {
+    border: none;
+    padding: 15px 10px;
+    border-radius: 3px;
+    /* background-color: rgb(214, 230, 199); */
+    transition: all 0.3s ease;
+}
+.email-details button:hover {
+    background-color: rgb(189, 189, 189);
 }

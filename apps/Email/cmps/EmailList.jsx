@@ -4,7 +4,7 @@ const { Link } = ReactRouterDOM;
 
 export function EmailList({ emails, onReadEmail, onDelEmail, onMarkUnread }) {
     return (
-        <section>
+        <section className="email-list">
             {emails.map((email) => {
                 return (
                     <Link to={`/email/${email.id}`} key={email.id}>

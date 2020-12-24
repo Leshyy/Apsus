@@ -1,8 +1,18 @@
 @import './email-preview.css';
 @import './email-details.css';
 @import './email-add.css';
+@import './email-list.css';
 
 /* general */
+
+body {
+    background-color: rgb(226, 226, 226);
+}
+
 textarea {
     resize: none;
+}
+/* helpers */
+.email-read {
+    background-color: rgb(176, 187, 153);
 }

@@ -32,9 +32,9 @@ export class EmailDetails extends React.Component {
         const receivers = email.receivers.join(', ');
         return (
             <section className="email-details">
-                <h2>{email.sender}</h2>
-                <h3>{receivers}</h3>
-                <h3>{email.subject}</h3>
+                <h1>From: {email.sender}</h1>
+                <h2>To:{receivers}</h2>
+                <h3>Subject: {email.subject}</h3>
                 <p>{email.body}</p>
                 <button onClick={this.onHideEmail}>Hide Email</button>
             </section>
