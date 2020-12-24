@@ -1,4 +1,4 @@
-export function EmailPreview({ email, onReadEmail }) {
+export function EmailPreview({ email, onReadEmail, onDelEmail, onMarkUnread }) {
     const isEmailRead = email.isRead ? '' : 'email-read';
     return (
         <section
@@ -7,9 +7,27 @@ export function EmailPreview({ email, onReadEmail }) {
                 onReadEmail(email.id);
             }}
         >
-            <h2>{email.sender}</h2>
-            <h3>{email.subject}</h3>
-            <p>{email.body}</p>
+            <div className="email-btns">
+                <button
+                    onClick={(ev) => {
+                        onDelEmail(ev, email.id);
+                    }}
+                >
+                    del
+                </button>
+                <button
+                    onClick={(ev) => {
+                        onMarkUnread(ev, email.id);
+                    }}
+                >
+                    Mark Unread
+                </button>
+            </div>
+            <div className="email-preview-text">
+                <h2>{email.sender}</h2>
+                <h3>{email.subject}</h3>
+                <p>{email.body}</p>
+            </div>
         </section>
     );
 }

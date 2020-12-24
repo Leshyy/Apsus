@@ -6,17 +6,21 @@
     border-top: 1px solid rgb(66, 66, 66);
     background-color: rgb(213, 219, 175);
 }
+.email-preview-text {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+}
 .email-preview:hover {
     background-color: rgb(189, 189, 189);
 }
 .email-preview > *:first-child {
     padding-left: 5px;
 }
-
-/* .email-preview :not(:first-child) {
-    margin-left: 20px;
-} */
-
+.email-preview > :last-child {
+    padding-right: 10px;
+}
 .email-read {
     background-color: rgb(176, 187, 153);
 }

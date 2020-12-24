@@ -1,2 +1,8 @@
 @import './email-preview.css';
 @import './email-details.css';
+@import './email-add.css';
+
+/* general */
+textarea {
+    resize: none;
+}

@@ -5,6 +5,9 @@ export const emailService = {
     query,
     getEmailById,
     markAsRead,
+    markAsUnRead,
+    remove,
+    add,
 };
 
 const EMAIL_KEY = 'emails';
@@ -35,17 +38,31 @@ function getEmailById(emailId) {
     return Promise.resolve(email);
 }
 
-function add() {}
+function add(email) {
+    email['id'] = utilService.makeId();
+    email['sender'] = 'Me';
+    gEmails.push(email);
+    storageService.save(gEmails, EMAIL_KEY);
+    return Promise.resolve();
+}
 
 function remove(emailId) {
     gEmails = gEmails.filter((email) => email.id !== emailId);
     storageService.save(gEmails, EMAIL_KEY);
-    // return Promise.resolve(gEmails);
+    return Promise.resolve();
 }
 
 function markAsRead(emailId) {
     getEmailById(emailId).then((email) => {
         email.isRead = true;
+        storageService.save(gEmails, EMAIL_KEY);
+    });
+    return Promise.resolve();
+}
+
+function markAsUnRead(emailId) {
+    getEmailById(emailId).then((email) => {
+        email.isRead = false;
         storageService.save(gEmails, EMAIL_KEY);
     });
     return Promise.resolve();

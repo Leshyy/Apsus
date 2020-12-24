@@ -9,13 +9,9 @@ export class EmailDetails extends React.Component {
         this.loadEmail();
     }
     componentDidUpdate(prevProps) {
-        const currMatchParams = this.props.match.params;
-        const prevMatchParams = prevProps.match.params;
         if (
             this.props.match.params.emailId !== prevProps.match.params.emailId
         ) {
-            console.log('curr', currMatchParams.emailId);
-            console.log('prev', prevMatchParams.emailId);
             this.loadEmail();
         }
     }
@@ -23,7 +19,6 @@ export class EmailDetails extends React.Component {
     loadEmail = () => {
         const { emailId } = this.props.match.params;
         emailService.getEmailById(emailId).then((email) => {
-            console.log(email);
             this.setState({ email });
         });
     };
