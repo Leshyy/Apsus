@@ -5,6 +5,8 @@ export const notesService = {
     query,
     getNoteById,
     removeNote,
+    addNote,
+    updateNote,
 };
 
 const NOTES_KEY = 'notes';
@@ -14,16 +16,19 @@ let gNotes;
 
 _createNotes();
 
-function createNote(type, info) {
+function createNote(type, title, info) {
     return {
         id: utilService.makeId(),
-        isPinned: false,
         type,
+        title,
         info,
+        label: '',
+        isPinned: false,
         createdAt: Date.now(),
         style: {
             backgroundColor: '',
-            fontColor: '',
+            // fontColor: '',
+            // fontWeight: 'regular'
         },
     };
 }
@@ -37,7 +42,24 @@ function getNoteById(noteId) {
     return Promise.resolve(notes);
 }
 
-function add() {}
+function updateNote(note) {
+    const noteToUpdate = {
+        ...note
+    };
+    const notesCopy = [...gNotes];
+    const noteIdx = notesCopy.findIndex(note => note.id === noteToUpdate.id);
+    notesCopy[noteIdx] = noteToUpdate;
+    gNotes = notesCopy;
+    storageService.save(gNotes, NOTES_KEY);
+    return Promise.resolve(noteToUpdate);
+}
+
+function addNote(note) {
+    note['id'] = utilService.makeId()
+    gNotes.push(note)
+    storageService.save(gNotes, NOTES_KEY);
+    return Promise.resolve();
+}
 
 function removeNote(noteId) {
     gNotes = gNotes.filter((note) => noteId !== note.id);
@@ -57,9 +79,9 @@ function _createNotes() {
 
 function _getDemoNotes() {
     return [
-        createNote('NoteText', { txt: 'Tamir is Esh!' }),
-        createNote('NoteText', { txt: 'Eran is Water!' }),
-        createNote('NoteText', { txt: 'Margad is Earth!' }),
+        createNote('NoteText', 'note about Tamir', { txt: 'Tamir is Esh!' }),
+        createNote('NoteText', 'note about Eran', { txt: 'Eran is Water!' }),
+        createNote('NoteText', 'note about Margad', { txt: 'Margad is Earth!' }),
         // createNote("NoteImg", { url: "", title: "wow nice pic" }),
         // createNote("NoteVid", { url: "", title: "nice song" }),
         // createNote("NoteTodos", {
