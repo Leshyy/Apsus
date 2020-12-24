@@ -82,9 +82,9 @@ function _getDemoNotes() {
         createNote('NoteText', 'note about Tamir', { txt: 'Tamir is Esh!' }),
         createNote('NoteText', 'note about Eran', { txt: 'Eran is Water!' }),
         createNote('NoteText', 'note about Margad', { txt: 'Margad is Earth!' }),
-        // createNote("NoteImg", { url: "", title: "wow nice pic" }),
-        // createNote("NoteVid", { url: "", title: "nice song" }),
-        // createNote("NoteTodos", {
+        // createNote("NoteImg", 'bb', {'baba' url: "", title: "wow nice pic" }),
+        // createNote("NoteVid", 'aa', {'agaga' url: "", title: "nice song" }),
+        // createNote("NoteTodos", 'dd', {
         //     label: "things for sprint",
         //     todos: [
         //         { id: utilService.makeId(), txt: "finish preview", doneAt: null },
