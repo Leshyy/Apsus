@@ -3,11 +3,18 @@ import { eventBusService } from '../../../services/eventBusService.js';
 export class NoteInput extends React.Component {
     state = {
         note: {
+            type: '',
             id: null,
             title: '',
+            label: '',
+            isPinned: false,
+            createdAt: Date.now(),
             info: {
-                txt: '',
+                content: '',
             },
+            style: {
+                backgroundColor: '',
+            }
         },
     };
 
@@ -26,26 +33,34 @@ export class NoteInput extends React.Component {
         if (currField === 'title') {
             noteCopy.title = ev.target.value;
         } else {
-            noteCopy.info.txt = ev.target.value;
+            noteCopy.info.content = ev.target.value;
         }
         this.setState({ note: noteCopy });
     };
 
     clearInput = () => {
         const note = {
+            type: '',
             id: null,
             title: '',
+            label: '',
+            isPinned: false,
+            createdAt: Date.now(),
             info: {
-                txt: '',
+                content: '',
             },
-        };
+            style: {
+                backgroundColor: '',
+            }
+           
+        }
         this.setState({ note });
     };
 
     render() {
         return (
             <section>
-                <div className="notes-inputs">
+                <div className="note-input-main">
                     <form
                         className="notes-form"
                         onSubmit={(ev) => {
@@ -66,8 +81,8 @@ export class NoteInput extends React.Component {
                         />
                         <textarea
                             placeholder="Make a note..."
-                            name="txt"
-                            value={this.state.note.info.txt}
+                            name="content"
+                            value={this.state.note.info.content}
                             onChange={this.onHandleChange}
                         ></textarea>
                         <button type="button" onClick={this.clearInput}>

@@ -8,7 +8,7 @@
 
 .note-area {
     position: relative;
-    margin: 25px;
+    margin: 10px;
 }
 
 .remove-btn {
@@ -26,4 +26,25 @@
 
 .remove-btn:hover {
     background-color: rgb(255, 196, 119);
+}
+
+.note-img {
+    text-align: center;
+}
+
+.note-img img {
+    width: 200px;
+    height: 200px;
+    margin-top: 25px;
+    border-radius: 5px;
+}
+
+.note-vid{
+    text-align: center;
+}
+
+.note-vid iframe {
+    margin-top: 25px;
+    border-radius: 5px;
+    border: none;
 }
