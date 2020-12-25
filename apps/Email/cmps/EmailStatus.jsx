@@ -1,6 +1,6 @@
 import { eventBusService } from '../../../services/eventBusService.js';
 
-export class UnReadEmails extends React.Component {
+export class EmailStatus extends React.Component {
     state = {
         unReadCount: null,
     };

@@ -26,7 +26,7 @@ export function EmailPreview({ email, onReadEmail, onDelEmail, onMarkUnread }) {
             <div className="email-preview-text">
                 <h2>{email.sender}</h2>
                 <h3>{email.subject}</h3>
-                <p>{email.body}</p>
+                <h4>{email.body}</h4>
             </div>
         </section>
     );

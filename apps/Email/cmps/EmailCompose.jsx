@@ -1,4 +1,4 @@
-export class EmailAdd extends React.Component {
+export class EmailCompose extends React.Component {
     state = {
         email: {
             receivers: [],
@@ -10,8 +10,11 @@ export class EmailAdd extends React.Component {
     handleChange = (ev) => {
         const currField = ev.target.name;
         const emailCopy = { ...this.state.email };
-        if (currField === 'receivers') emailCopy[currField] = [ev.target.value];
-        else emailCopy[currField] = ev.target.value;
+        if (currField === 'receivers') {
+            // console.log(ev.target.value.split(' '));
+            // const recivers = ev.target.value.split(' ');
+            emailCopy[currField] = [ev.target.value];
+        } else emailCopy[currField] = ev.target.value;
         this.setState({ email: emailCopy });
     };
 
@@ -44,6 +47,13 @@ export class EmailAdd extends React.Component {
                     <button
                         onClick={(ev) => {
                             this.props.onAddEmail(ev, email);
+                            this.setState({
+                                email: {
+                                    receivers: [],
+                                    subject: '',
+                                    body: '',
+                                },
+                            });
                         }}
                     >
                         Send

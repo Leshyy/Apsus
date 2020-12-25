@@ -24,6 +24,7 @@ function createEmail(sender, receivers, subject, body) {
         receivers,
         subject,
         body,
+        inbox: true,
         isRead: false,
         sentAt: Date.now(),
     };
@@ -40,7 +41,10 @@ function getEmailById(emailId) {
 
 function add(email) {
     email['id'] = utilService.makeId();
-    email['sender'] = 'Me';
+    email['sender'] = 'tamir.leshetz@gmail.com';
+    email['sentAt'] = Date.now();
+    email['inbox'] = false;
+    email['isRead'] = false;
     gEmails.push(email);
     storageService.save(gEmails, EMAIL_KEY);
     return Promise.resolve();
