@@ -17,6 +17,10 @@ let gNotes;
 _createNotes();
 
 function createNote(type, title, info) {
+    if (type==='vidNote') {
+        info.content = info.content.replace('watch?v=', 'embed/')
+        console.log(info.content);
+    }
     return {
         id: utilService.makeId(),
         type,

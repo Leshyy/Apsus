@@ -38,3 +38,13 @@
     margin-top: 25px;
     border-radius: 5px;
 }
+
+.note-vid{
+    text-align: center;
+}
+
+.note-vid iframe {
+    margin-top: 25px;
+    border-radius: 5px;
+    border: none;
+}
