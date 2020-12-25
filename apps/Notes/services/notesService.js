@@ -79,10 +79,11 @@ function _createNotes() {
 
 function _getDemoNotes() {
     return [
-        createNote('NoteText', 'note about Tamir', { txt: 'Tamir is Esh!' }),
-        createNote('NoteText', 'note about Eran', { txt: 'Eran is Water!' }),
-        createNote('NoteText', 'note about Margad', { txt: 'Margad is Earth!' }),
-        // createNote("NoteImg", 'bb', {'baba' url: "", title: "wow nice pic" }),
+        createNote('txtNote', 'note about Tamir', {content: 'Tamir is Esh!' }),
+        createNote('txtNote', 'note about Eran', {content: 'Eran is Water!' }),
+        createNote('txtNote', 'note about Margad', {content: 'Margad is Earth!' }),
+        createNote('imgNote', 'Pinky and the Brain', {content: 'https://www.indiewire.com/wp-content/uploads/2018/11/Pinky-and-the-Brain.jpeg' }),
+        createNote('vidNote', 'Lhasa - La Maree Haute', {content: 'https://www.youtube.com/watch?v=NIq3qLaHCIs&ab_channel=WebDevSimplified' })
         // createNote("NoteVid", 'aa', {'agaga' url: "", title: "nice song" }),
         // createNote("NoteTodos", 'dd', {
         //     label: "things for sprint",

@@ -27,3 +27,14 @@
 .remove-btn:hover {
     background-color: rgb(255, 196, 119);
 }
+
+.note-img {
+    text-align: center;
+}
+
+.note-img img {
+    width: 200px;
+    height: 200px;
+    margin-top: 25px;
+    border-radius: 5px;
+}
