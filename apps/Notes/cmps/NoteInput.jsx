@@ -3,7 +3,7 @@ import { eventBusService } from '../../../services/eventBusService.js';
 export class NoteInput extends React.Component {
     state = {
         note: {
-            type: 'txtNote',
+            type: 'textNote',
             id: null,
             title: '',
             label: '',
@@ -82,9 +82,9 @@ export class NoteInput extends React.Component {
         let dynamicInputColor = this.state.inputColor
         let noteType=this.state.note.type
         let dynamicPlaceholder
-        if (noteType==='txtNote') dynamicPlaceholder='Write a note...'
+        if (noteType==='textNote') dynamicPlaceholder='Write a note...'
         else if (noteType==='imgNote') dynamicPlaceholder='Enter image url'
-        else if (noteType==='vidNote') dynamicPlaceholder='Enter Youtube video url'
+        else if (noteType==='videoNote') dynamicPlaceholder='Enter Youtube video url'
         else if(noteType==='todoNote') dynamicPlaceholder='Enter todo list items, seperated by a comma ( , )'
         else {
             dynamicPlaceholder='Make something you want to keep...'
@@ -119,24 +119,24 @@ export class NoteInput extends React.Component {
                         ></textarea>
                         <div className="input-btn"> 
                         <div className="type-menu" >    
-                            <button type="button" name="type" value="txtNote" className={(noteType==='txtNote')? 'btn-on':'btn-off'} onClick={this.onHandleChange}>txt</button>
+                            <button type="button" name="type" value="textNote" className={(noteType==='textNote')? 'btn-on':'btn-off'} onClick={this.onHandleChange}>text</button>
                             <button type="button" name="type" value="imgNote" className={(noteType==='imgNote')? 'btn-on':'btn-off'} onClick={this.onHandleChange}>img</button>
-                            <button type="button" name="type" value="vidNote" className={(noteType==='vidNote')? 'btn-on':'btn-off'} onClick={this.onHandleChange}>vid</button>
+                            <button type="button" name="type" value="videoNote" className={(noteType==='videoNote')? 'btn-on':'btn-off'} onClick={this.onHandleChange}>vid</button>
                             <button type="button" name="type" value="todoNote" className={(noteType==='todoNote')? 'btn-on':'btn-off'} onClick={this.onHandleChange}>todos</button>
                         </div>
                         <div className="color-menu" >
-                            <button type="button" name="style" value ="#9fdfbb" title="green" style={{backgroundColor:"#9fdfbb"}}onClick={this.onHandleChange}></button>
-                            <button type="button" name="style" value ="oldlace" title="offwhite" style={{backgroundColor:"oldlace"}}onClick={this.onHandleChange}></button>
+                            <button type="button" name="style" value ="darkseagreen" title="green" style={{backgroundColor:"darkseagreen"}}onClick={this.onHandleChange}></button>
+                            <button type="button" name="style" value ="antiquewhite" title="off-white" style={{backgroundColor:"antiquewhite"}}onClick={this.onHandleChange}></button>
                             <button type="button" name="style" value ="lightblue" title="blue" style={{backgroundColor:"lightblue"}}onClick={this.onHandleChange}></button>
                             <button type="button" name="style" value ="lightgoldenrodyellow" title="light yellow" style={{backgroundColor:"lightgoldenrodyellow"}}onClick={this.onHandleChange}></button>
-                            <button type="button" name="style" value ="sandybrown" title="light orange" style={{backgroundColor:"sandybrown"}}onClick={this.onHandleChange}></button>
-                            <button type="button" name="style" value ="salmon" title="light red" style={{backgroundColor:"salmon"}}onClick={this.onHandleChange}></button>
+                            <button type="button" name="style" value ="orange" title="orange" style={{backgroundColor:"orange"}}onClick={this.onHandleChange}></button>
+                            <button type="button" name="style" value ="indianred" title="light red" style={{backgroundColor:"indianred"}}onClick={this.onHandleChange}></button>
                             <button type="button" name="style" value ="lightgrey" title="grey" style={{backgroundColor:"lightgrey"}}onClick={this.onHandleChange}></button>
-                            <button type="button" name="style" value ="thistle" title="purple " style={{backgroundColor:"thistle"}}onClick={this.onHandleChange}></button>
+                            <button type="button" name="style" value ="mediumpurple" title="purple " style={{backgroundColor:"mediumpurple"}}onClick={this.onHandleChange}></button>
                         </div>
                         <div className="control-menu" >
-                            <button type="button" onClick={this.clearInput}> Clear/Unselect</button>
-                            <button type="submit">Save</button>
+                            <button type="button" className="clear-btn" onClick={this.clearInput}> Clear/Unselect</button>
+                            <button type="submit" className="submit-btn">Save</button>
                         </div>
                         </div>
                     </form>

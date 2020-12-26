@@ -1,9 +1,12 @@
 .note-preview {
-    /* background-color: rgb(226, 233, 162); */
     border-radius: 5px;
     box-shadow: 0px 4px 10px 0px rgba(50, 50, 50, 0.4);
     width: fit-content;
     padding: 1px 20px;
+}
+
+.note-preview:hover {
+    transform: scale(1.03);
 }
 
 .note-area {
@@ -53,3 +56,26 @@
     list-style-type:disc;
     margin-bottom: 10px;
 }
+
+.note-pinned {
+    order: -1;
+}
+
+.pin-btn {
+    position:absolute;
+    left:0;
+    top:0;
+    border-radius: 50%; 
+    font-weight: bold;
+    background-color: gainsboro;
+    border: none;
+}
+
+.currently-pinned {
+    background-color:rgb(245, 243, 146);
+}
+
+.todo-done {
+    text-decoration:overline;
+}
+

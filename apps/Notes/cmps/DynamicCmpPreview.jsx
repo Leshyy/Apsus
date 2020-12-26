@@ -6,14 +6,14 @@ import { TodoListNote } from './TodoListNote.jsx';
 
 export function DynamicCmpPreview({ currCmp, title , info}) {
     switch (currCmp) {
-        case 'txtNote':
+        case 'textNote':
             return <TextNote title={title} info={info} />
         case 'imgNote':
             return <ImgNote title={title} info={info} />
-        case 'vidNote':
+        case 'videoNote':
             return <VidNote title={title} info={info} />
         case 'todoNote':
-            return <TodoListNote title={title} info={info} />
+            return <TodoListNote title={title} info={info}/>
     }
     return <h4>Error! Please select note type!</h4>
 }

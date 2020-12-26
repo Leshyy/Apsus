@@ -30,6 +30,14 @@ export class NotesApp extends React.Component {
         });
     };
 
+    onPinNote = (ev,noteId) => {
+        ev.stopPropagation();
+        notesService.pinNote(noteId).then(() => {
+            this.loadNotes();
+            eventBusService.emit('notePinned', '');
+        });  
+    }
+
     onSelectNote = (noteId) => {
         notesService.getNoteById(noteId).then((note) => {
             eventBusService.emit('noteSelected', note);
@@ -75,7 +83,7 @@ export class NotesApp extends React.Component {
 
     render() {
         return (
-            <section>
+            <section className="main-layout">
                 <NoteFilter setFilter={this.onSetFilter}/>
                 <NoteInput onSaveNote={this.onSaveNote} />
                 <section>
@@ -84,6 +92,7 @@ export class NotesApp extends React.Component {
                             notes={this.getNotesForDisplay()}
                             onRemove={this.onRemove}
                             onSelectNote={this.onSelectNote}
+                            onPinNote={this.onPinNote}
                         />
                     )}
                 </section>
@@ -91,14 +100,3 @@ export class NotesApp extends React.Component {
         );
     }
 }
-
-// onHandleChange = (ev) => {
-//    const value = ev.target.type === 'number' ? +ev.target.value : ev.target.value;
-
-//    const reviewCopy = { ...this.state.review };
-//    reviewCopy[ev.target.name] = value;
-
-//    this.setState({
-//        review: reviewCopy
-//    });
-// }

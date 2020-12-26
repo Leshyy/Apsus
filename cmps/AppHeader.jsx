@@ -3,8 +3,8 @@ const { NavLink, withRouter } = ReactRouterDOM;
 function _AppHeader() {
     return (
         <header className="app-header">
-            <h1>Apsus~</h1>
-            <ul className="app-header-nav">
+            <h1 className="logo header-layout">Apsus~</h1>
+            <ul className="app-header-nav header-layout">
                 <li>
                     <NavLink activeClassName="my-active" exact to="/">
                         Home

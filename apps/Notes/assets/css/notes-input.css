@@ -53,6 +53,7 @@
     width: 50%;
     display: flex;
     justify-content: space-between;
+    margin-top: 2px;
 }
 
 .btn-on {
@@ -75,3 +76,22 @@
     margin-left:5px;
     margin-right: 5px;
 }
+.color-menu button:hover {
+    transform: scale(1.1);
+    transition: ease .2s;
+}
+
+.type-menu button {
+ width: 50px;
+}
+
+.clear-btn {
+    margin-right: 2px;
+}
+.clear-btn:hover {
+  background-color: rgb(156, 223, 156);
+}
+
+.submit-btn:hover {
+    background-color: rgb(156, 223, 156);
+  }

@@ -7,6 +7,7 @@ export const notesService = {
   removeNote,
   addNote,
   updateNote,
+  pinNote
 };
 
 const NOTES_KEY = 'notes';
@@ -33,7 +34,7 @@ function createEmbededLink(link) {
 }
 
 function createNote(type, title, info) {
-  if (type === 'vidNote') {
+  if (type === 'videoNote') {
     info.content = createEmbededLink(info.content);
   }
   return {
@@ -46,7 +47,6 @@ function createNote(type, title, info) {
     createdAt: Date.now(),
     style: {
       backgroundColor: 'darkseagreen',
-      // fontColor: '',
     },
   };
 }
@@ -60,11 +60,22 @@ function getNoteById(noteId) {
   return Promise.resolve(notes);
 }
 
+function pinNote(noteId){
+  this.getNoteById(noteId).then(note=>{
+    if(!note.isPinned) {
+      note.isPinned=true
+   } else {note.isPinned=false
+   }
+   storageService.save(gNotes, NOTES_KEY);
+  })
+  return Promise.resolve()
+}
+
 function updateNote(note) {
   const noteToUpdate = {
     ...note,
   };
-  if (noteToUpdate.type==='vidNote'){
+  if (noteToUpdate.type==='videoNote'){
     noteToUpdate.info.content=createEmbededLink(noteToUpdate.info.content);
   }
   const notesCopy = [...gNotes];
@@ -77,7 +88,7 @@ function updateNote(note) {
 
 function addNote(note) {
   note["id"] = utilService.makeId();
-    if (note.type==='vidNote'){
+    if (note.type==='videoNote'){
       note.info.content=createEmbededLink(note.info.content);
     }
   gNotes.push(note);
@@ -103,10 +114,10 @@ function _createNotes() {
 
 function _getDemoNotes() {
   return [
-    createNote("txtNote", "Haiku for Eran", { content: "O snail,\nClimb Mount Fuji\nBut slowly, slowly!"}),
-    createNote("txtNote", "Haiku for Margad", { content: " Trusting the Buddha,\n good and bad\n I bid farewell\n To the departing year!"}),
-    createNote("txtNote", "Haiku for Tamir", { content: "Everything I touch,\nwith tenderness, alas,\npricks like a bramble." }),
-    createNote("vidNote", "Lhasa - La Maree Haute", {
+    createNote("textNote", "Haiku for Eran", { content: "O snail,\nClimb Mount Fuji\nBut slowly, slowly!"}),
+    createNote("textNote", "Haiku for Margad", { content: " Trusting the Buddha,\n good and bad\n I bid farewell\n To the departing year!"}),
+    createNote("textNote", "Haiku for Tamir", { content: "Everything I touch,\nwith tenderness, alas,\npricks like a bramble." }),
+    createNote("videoNote", "Lhasa - La Maree Haute", {
       content: "https://www.youtube.com/watch?v=hRofRbkGi5k&ab_channel=UtkanBoyacioglu",
     }),createNote("imgNote", "Snufkin playing his harmonica", {
       content:
