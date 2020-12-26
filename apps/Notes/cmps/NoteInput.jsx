@@ -3,40 +3,60 @@ import { eventBusService } from '../../../services/eventBusService.js';
 export class NoteInput extends React.Component {
     state = {
         note: {
-            type: '',
+            type: 'txtNote',
             id: null,
             title: '',
             label: '',
             isPinned: false,
-            createdAt: Date.now(),
             info: {
                 content: '',
             },
+            createdAt: Date.now(),
             style: {
-                backgroundColor: '',
+              backgroundColor: 'darkseagreen',
             }
         },
+        inputColor: null
     };
 
     componentDidMount() {
         eventBusService.on('noteSelected', (note) => {
-            this.setState({ note });
+            this.setState({ note:note, inputColor: null});
         });
         eventBusService.on('noteDeleted', () => {
             this.clearInput();
         });
     }
 
+
     onHandleChange = (ev) => {
         const currField = ev.target.name;
         const noteCopy = { ...this.state.note };
-        if (currField === 'title') {
-            noteCopy.title = ev.target.value;
-        } else {
+        if (this.state.note.id && currField==='type') {
+            console.log('cannot change type of existing note');
+            return    
+        }  else if (currField === 'content'){
             noteCopy.info.content = ev.target.value;
+        } else if (this.state.note.id&&currField ==='style'){
+            noteCopy.style.backgroundColor = ev.target.value;
+            this.setState({ note: noteCopy });
+            console.log(this.state.note.style.backgroundColor);
+            this.props.onSaveNote(
+                ev,
+                this.state.note,
+                this.doNothingCb)
+        } else if (!this.state.note.id&&currField ==='style'){
+        noteCopy.style.backgroundColor = ev.target.value;
+        this.setState({inputColor: ev.target.value})
+        } else {
+            noteCopy[currField]=ev.target.value;
         }
         this.setState({ note: noteCopy });
     };
+
+    doNothingCb (){
+        return 
+    }
 
     clearInput = () => {
         const note = {
@@ -45,19 +65,30 @@ export class NoteInput extends React.Component {
             title: '',
             label: '',
             isPinned: false,
-            createdAt: Date.now(),
             info: {
                 content: '',
             },
+            createdAt: Date.now(),
             style: {
-                backgroundColor: '',
+              backgroundColor: 'darkseagreen',
             }
-           
         }
-        this.setState({ note });
+        this.setState({ note:note,inputColor:null });
+
     };
 
+
     render() {
+        let dynamicInputColor = this.state.inputColor
+        let noteType=this.state.note.type
+        let dynamicPlaceholder
+        if (noteType==='txtNote') dynamicPlaceholder='Write a note...'
+        else if (noteType==='imgNote') dynamicPlaceholder='Enter image url'
+        else if (noteType==='vidNote') dynamicPlaceholder='Enter Youtube video url'
+        else if(noteType==='todoNote') dynamicPlaceholder='Enter todo list items, seperated by a comma ( , )'
+        else {
+            dynamicPlaceholder='Make something you want to keep...'
+        }
         return (
             <section>
                 <div className="note-input-main">
@@ -69,9 +100,9 @@ export class NoteInput extends React.Component {
                                 this.state.note,
                                 this.clearInput
                             );
-                        }}
-                    >
+                        }}>
                         <input
+                            style = {{backgroundColor:dynamicInputColor}}
                             type="text"
                             autoComplete="off"
                             placeholder="Title"
@@ -80,15 +111,34 @@ export class NoteInput extends React.Component {
                             onChange={this.onHandleChange}
                         />
                         <textarea
-                            placeholder="Make a note..."
+                            style = {{backgroundColor:dynamicInputColor}}
+                            placeholder={dynamicPlaceholder}
                             name="content"
                             value={this.state.note.info.content}
                             onChange={this.onHandleChange}
                         ></textarea>
-                        <button type="button" onClick={this.clearInput}>
-                            Clear
-                        </button>
-                        <button type="submit">Save</button>
+                        <div className="input-btn"> 
+                        <div className="type-menu" >    
+                            <button type="button" name="type" value="txtNote" className={(noteType==='txtNote')? 'btn-on':'btn-off'} onClick={this.onHandleChange}>txt</button>
+                            <button type="button" name="type" value="imgNote" className={(noteType==='imgNote')? 'btn-on':'btn-off'} onClick={this.onHandleChange}>img</button>
+                            <button type="button" name="type" value="vidNote" className={(noteType==='vidNote')? 'btn-on':'btn-off'} onClick={this.onHandleChange}>vid</button>
+                            <button type="button" name="type" value="todoNote" className={(noteType==='todoNote')? 'btn-on':'btn-off'} onClick={this.onHandleChange}>todos</button>
+                        </div>
+                        <div className="color-menu" >
+                            <button type="button" name="style" value ="#9fdfbb" title="green" style={{backgroundColor:"#9fdfbb"}}onClick={this.onHandleChange}></button>
+                            <button type="button" name="style" value ="oldlace" title="offwhite" style={{backgroundColor:"oldlace"}}onClick={this.onHandleChange}></button>
+                            <button type="button" name="style" value ="lightblue" title="blue" style={{backgroundColor:"lightblue"}}onClick={this.onHandleChange}></button>
+                            <button type="button" name="style" value ="lightgoldenrodyellow" title="light yellow" style={{backgroundColor:"lightgoldenrodyellow"}}onClick={this.onHandleChange}></button>
+                            <button type="button" name="style" value ="sandybrown" title="light orange" style={{backgroundColor:"sandybrown"}}onClick={this.onHandleChange}></button>
+                            <button type="button" name="style" value ="salmon" title="light red" style={{backgroundColor:"salmon"}}onClick={this.onHandleChange}></button>
+                            <button type="button" name="style" value ="lightgrey" title="grey" style={{backgroundColor:"lightgrey"}}onClick={this.onHandleChange}></button>
+                            <button type="button" name="style" value ="thistle" title="purple " style={{backgroundColor:"thistle"}}onClick={this.onHandleChange}></button>
+                        </div>
+                        <div className="control-menu" >
+                            <button type="button" onClick={this.clearInput}> Clear/Unselect</button>
+                            <button type="submit">Save</button>
+                        </div>
+                        </div>
                     </form>
                 </div>
             </section>

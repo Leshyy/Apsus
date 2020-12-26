@@ -48,3 +48,30 @@
 .notes-inputs {
     display: flex;
 }
+
+.input-btn {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-on {
+    background-color:rgb(127, 195, 127);
+}
+
+.btn-off {
+    background-color: lightgrey;
+}
+
+.color-menu {
+    display: flex;
+    justify-content: space-between;
+}
+
+.color-menu button {
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    margin-left:5px;
+    margin-right: 5px;
+}

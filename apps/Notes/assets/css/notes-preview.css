@@ -1,5 +1,5 @@
 .note-preview {
-    background-color: rgb(226, 233, 162);
+    /* background-color: rgb(226, 233, 162); */
     border-radius: 5px;
     box-shadow: 0px 4px 10px 0px rgba(50, 50, 50, 0.4);
     width: fit-content;
@@ -47,4 +47,9 @@
     margin-top: 25px;
     border-radius: 5px;
     border: none;
+}
+
+.note-todos li{
+    list-style-type:disc;
+    margin-bottom: 10px;
 }

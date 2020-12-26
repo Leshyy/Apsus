@@ -1,5 +1,5 @@
-import { storageService } from "../../../services/storageService.js";
-import { utilService } from "../../../services/utilService.js";
+import { storageService } from '../../../services/storageService.js';
+import { utilService } from '../../../services/utilService.js';
 
 export const notesService = {
   query,
@@ -9,7 +9,7 @@ export const notesService = {
   updateNote,
 };
 
-const NOTES_KEY = "notes";
+const NOTES_KEY = 'notes';
 
 // app data
 let gNotes;
@@ -17,31 +17,36 @@ let gNotes;
 _createNotes();
 
 function createEmbededLink(link) {
-  link = link.replace("watch?v=", "embed/");
-  link = link.slice(
-    0,
-    link.split("").findIndex((char) => char === "&")
-  );
-  console.log(link);
-  return link
+  link = link.replace('watch?v=', 'embed/');
+  console.log('link after replace', link)
+  if (link.split('').findIndex((char) => char === '&') === -1) {
+    console.log(link);
+    return link;
+  } else {
+    link = link.slice(
+      0,
+      link.split('').findIndex((char) => char === '&')
+    );
+    console.log(link);
+    return link;
+  }
 }
 
 function createNote(type, title, info) {
-  if (type === "vidNote") {
-    info.content=createEmbededLink(info.content);
+  if (type === 'vidNote') {
+    info.content = createEmbededLink(info.content);
   }
   return {
     id: utilService.makeId(),
     type,
     title,
     info,
-    label: "",
+    label: '',
     isPinned: false,
     createdAt: Date.now(),
     style: {
-      backgroundColor: "",
+      backgroundColor: 'darkseagreen',
       // fontColor: '',
-      // fontWeight: 'regular'
     },
   };
 }
@@ -59,6 +64,9 @@ function updateNote(note) {
   const noteToUpdate = {
     ...note,
   };
+  if (noteToUpdate.type==='vidNote'){
+    noteToUpdate.info.content=createEmbededLink(noteToUpdate.info.content);
+  }
   const notesCopy = [...gNotes];
   const noteIdx = notesCopy.findIndex((note) => note.id === noteToUpdate.id);
   notesCopy[noteIdx] = noteToUpdate;
@@ -69,9 +77,9 @@ function updateNote(note) {
 
 function addNote(note) {
   note["id"] = utilService.makeId();
-//   if (note.type==='vidNote'){
-//     note.info.content=createEmbededLink(note.info.content);
-//   }
+    if (note.type==='vidNote'){
+      note.info.content=createEmbededLink(note.info.content);
+    }
   gNotes.push(note);
   storageService.save(gNotes, NOTES_KEY);
   return Promise.resolve();
@@ -95,28 +103,15 @@ function _createNotes() {
 
 function _getDemoNotes() {
   return [
-    createNote("txtNote", "note about Tamir", { content: "Tamir is Esh!" }),
-    createNote("txtNote", "note about Eran", { content: "Eran is Water!" }),
-    createNote("txtNote", "note about Margad", { content: "Margad is Earth!" }),
-    createNote("imgNote", "Pinky and the Brain", {
-      content:
-        "https://www.indiewire.com/wp-content/uploads/2018/11/Pinky-and-the-Brain.jpeg",
-    }),
+    createNote("txtNote", "Haiku for Eran", { content: "O snail,\nClimb Mount Fuji\nBut slowly, slowly!"}),
+    createNote("txtNote", "Haiku for Margad", { content: " Trusting the Buddha,\n good and bad\n I bid farewell\n To the departing year!"}),
+    createNote("txtNote", "Haiku for Tamir", { content: "Everything I touch,\nwith tenderness, alas,\npricks like a bramble." }),
     createNote("vidNote", "Lhasa - La Maree Haute", {
+      content: "https://www.youtube.com/watch?v=hRofRbkGi5k&ab_channel=UtkanBoyacioglu",
+    }),createNote("imgNote", "Snufkin playing his harmonica", {
       content:
-        "https://youtu.be/hA_Y5wVdSCY",
+        "https://pbs.twimg.com/ext_tw_video_thumb/1106065230281478144/pu/img/nFxTCyjOx2bOkSYL.jpg",
     }),
-    // createNote("NoteVid", 'aa', {'agaga' url: "", title: "nice song" }),
-    // createNote("NoteTodos", 'dd', {
-    //     label: "things for sprint",
-    //     todos: [
-    //         { id: utilService.makeId(), txt: "finish preview", doneAt: null },
-    //         {
-    //             id: utilService.makeId(),
-    //             txt: "buy tamir a gift",
-    //             doneAt: Date.now(),
-    //         },
-    //     ],
-    // }),
+    createNote("todoNote", "things for sprint", {content:'finish preview, buy tamir a burger, take a shower'})
   ];
 }

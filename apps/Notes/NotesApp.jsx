@@ -2,10 +2,14 @@ import { notesService } from './services/notesService.js';
 import { eventBusService } from '../../services/eventBusService.js';
 import { NoteList } from './cmps/NoteList.jsx';
 import { NoteInput } from './cmps/NoteInput.jsx';
+import { NoteFilter } from './cmps/NoteFilter.jsx';
 
 export class NotesApp extends React.Component {
     state = {
         notes: [],
+        filterBy:{
+            txt:''
+        }
     };
 
     componentDidMount() {
@@ -52,14 +56,32 @@ export class NotesApp extends React.Component {
         cb();
     };
 
+    onSetFilter = (filterBy)=>{
+        this.setState({filterBy})
+    }
+
+    getNotesForDisplay=()=>{
+        const { filterBy } = this.state;
+        const filterRegex = new RegExp(filterBy.txt, 'i');
+        return this.state.notes.filter(note=>{
+            return( filterRegex.test(note.info.content)||
+             filterRegex.test(note.title)||
+             filterRegex.test(note.type)||
+             filterRegex.test(note.label)||
+             filterRegex.test(note.style.backgroundColor)
+            )
+        })          
+    }
+
     render() {
         return (
             <section>
+                <NoteFilter setFilter={this.onSetFilter}/>
                 <NoteInput onSaveNote={this.onSaveNote} />
                 <section>
                     {this.state.notes.length && (
                         <NoteList
-                            notes={this.state.notes}
+                            notes={this.getNotesForDisplay()}
                             onRemove={this.onRemove}
                             onSelectNote={this.onSelectNote}
                         />

@@ -12,8 +12,8 @@ export function DynamicCmpPreview({ currCmp, title , info}) {
             return <ImgNote title={title} info={info} />
         case 'vidNote':
             return <VidNote title={title} info={info} />
-        case 'todoListNote':
+        case 'todoNote':
             return <TodoListNote title={title} info={info} />
     }
-    return <p>Error</p>
+    return <h4>Error! Please select note type!</h4>
 }
