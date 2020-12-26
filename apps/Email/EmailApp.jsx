@@ -4,7 +4,7 @@ import { EmailDetails } from './cmps/EmailDetails.jsx';
 import { EmailFilter } from './cmps/EmailFilter.jsx';
 import { EmailList } from './cmps/EmailList.jsx';
 import { EmailNav } from './cmps/EmailNav.jsx';
-import { UnReadEmails } from './cmps/EmailStatus.jsx';
+import { EmailRead } from './cmps/EmailRead.jsx';
 import { emailService } from './services/emailService.js';
 
 const { Route, Switch } = ReactRouterDOM;
@@ -17,6 +17,7 @@ export class EmailApp extends React.Component {
             txt: '',
             status: '',
         },
+        readEmails: 0,
     };
     componentDidMount() {
         this.loadEmails();
@@ -24,13 +25,12 @@ export class EmailApp extends React.Component {
 
     loadEmails = () => {
         emailService.query().then((emails) => {
-            this.setState({ emails });
+            this.setState({ emails }, this.getReadEmails);
         });
     };
 
     onReadEmail = (emailId) => {
         emailService.markAsRead(emailId).then(() => {
-            eventBusService.emit('readEmail', '');
             this.loadEmails();
         });
     };
@@ -60,6 +60,13 @@ export class EmailApp extends React.Component {
         emailService.add(email).then(() => {
             this.loadEmails();
         });
+    };
+
+    getReadEmails = () => {
+        const readEmails = this.state.emails.filter((email) => {
+            return email.isRead;
+        });
+        this.setState({ readEmails: readEmails.length });
     };
 
     onSetFilter = (filterBy) => {
@@ -96,14 +103,19 @@ export class EmailApp extends React.Component {
     render() {
         const { emails } = this.state;
         return (
-            <section>
-                <EmailFilter setFilter={this.onSetFilter} />
-                <button onClick={this.showComposeEmail}>Compose</button>
+            <section className="email-app main-layout">
+                <div className="email-filter-compose">
+                    <EmailFilter setFilter={this.onSetFilter} />
+                    <button onClick={this.showComposeEmail}>Compose</button>
+                </div>
+                <EmailRead
+                    emailsRead={this.state.readEmails}
+                    emails={emails.length}
+                />
                 {this.state.showComposeEmail && (
                     <EmailCompose onAddEmail={this.onAddEmail} />
                 )}
-                {/* TODO - unread emails fix it */}
-                {/* <EmailNav /> */}
+                <EmailNav />
                 <Switch>
                     <Route path="/email/:emailId" component={EmailDetails} />
                     <Route

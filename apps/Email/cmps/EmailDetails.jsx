@@ -36,7 +36,7 @@ export class EmailDetails extends React.Component {
                 <h2>To:{receivers}</h2>
                 <h3>Subject: {email.subject}</h3>
                 <p>{email.body}</p>
-                <button onClick={this.onHideEmail}>Hide Email</button>
+                <button onClick={this.onHideEmail}>Back</button>
             </section>
         );
     }
