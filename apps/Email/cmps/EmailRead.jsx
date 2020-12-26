@@ -2,7 +2,7 @@ export function EmailRead({ emailsRead, emails }) {
     return (
         <section>
             <h3>
-                {emailsRead} Read out of {emails}
+                {emailsRead} Emails read out of {emails}
             </h3>
         </section>
     );

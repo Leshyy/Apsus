@@ -5,11 +5,12 @@
     justify-content: space-between;
     align-items: center;
     box-shadow: 0px 4px 10px 0px rgba(50, 50, 50, 0.4);
+    position: relative;
 }
 
 .app-header h1 {
     margin-left: 10px;
-    font-style:italic;
+    font-style: italic;
 }
 
 .app-header-nav {
@@ -26,6 +27,7 @@
 }
 
 .app-header a:hover {
-    background-color: lightgray;
-    /* color: lemonchiffon;*/
+    /* background-color: lightgray; */
+    font-weight: bold;
+    /* color: lemonchiffon; */
 }

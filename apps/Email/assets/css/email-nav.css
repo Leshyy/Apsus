@@ -1,0 +1,20 @@
+.email-nav {
+    width: 10%;
+}
+.email-nav ul {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.email-nav ul li {
+    list-style-type: none;
+    text-transform: capitalize;
+    transition: all 0.3s;
+    padding: 5px 7px;
+    font-size: 1.3rem;
+}
+.email-nav ul a:hover {
+    /* background-color: rgb(154 154 154); */
+    font-weight: bold;
+}

@@ -23,7 +23,7 @@ export class EmailDetails extends React.Component {
         });
     };
     onHideEmail = () => {
-        this.props.history.push('/email');
+        this.props.history.goBack();
     };
 
     render() {
