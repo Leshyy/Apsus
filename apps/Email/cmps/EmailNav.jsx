@@ -2,13 +2,15 @@ const { Link } = ReactRouterDOM;
 
 export function EmailNav() {
     return (
-        <div>
-            <Link to={`/email/sent`}>
-                <h2>sent</h2>
-            </Link>
-            <Link to={`/email`}>
-                <h2>inbox</h2>
-            </Link>
-        </div>
+        <section className="email-nav">
+            <ul>
+                <li>
+                    <Link to="/email/inbox">inbox</Link>
+                </li>
+                <li>
+                    <Link to="/email/sent">sent</Link>
+                </li>
+            </ul>
+        </section>
     );
 }

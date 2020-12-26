@@ -4,6 +4,8 @@
 @import './email-list.css';
 @import './email-filter.css';
 @import './email-app.css';
+@import './email-welcome.css';
+@import './email-nav.css';
 
 /* general */
 
@@ -19,3 +21,68 @@ textarea {
 .email-read {
     background-color: rgb(176, 187, 153);
 }
+<<<<<<< HEAD
+=======
+.main-layout {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 1280px) {
+    .main-layout {
+        max-width: 1000px;
+    }
+    .email-preview button {
+        font-size: 1.1rem;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    html {
+        font-size: 12px;
+    }
+    .main-layout {
+        max-width: 700px;
+    }
+    .email-preview button {
+        font-size: 0.9rem;
+    }
+}
+@media screen and (max-width: 700px) {
+    .main-layout {
+        max-width: 400px;
+    }
+    .main-content {
+        flex-direction: column;
+    }
+    .email-nav {
+        width: unset;
+    }
+    .email-list {
+        width: 100%;
+    }
+    .email-app .email-filter-compose button {
+        padding: 5px;
+    }
+    .email-preview-text {
+        padding: 0 5px;
+    }
+    .email-add form {
+        width: 300px;
+    }
+    .email-add textarea {
+        height: 200px;
+    }
+    .email-details {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 400px) {
+    .email-app .email-filter-compose {
+        flex-wrap: wrap;
+    }
+    .email-filter input {
+        padding: 5px 5px;
+    }
+}
+>>>>>>> 67e26adb4948f0f248d51f226003bc926f4c341f

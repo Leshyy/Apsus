@@ -5,6 +5,7 @@ import { EmailFilter } from './cmps/EmailFilter.jsx';
 import { EmailList } from './cmps/EmailList.jsx';
 import { EmailNav } from './cmps/EmailNav.jsx';
 import { EmailRead } from './cmps/EmailRead.jsx';
+import { EmailWelcome } from './cmps/EmailWelcome.jsx';
 import { emailService } from './services/emailService.js';
 
 const { Route, Switch } = ReactRouterDOM;
@@ -115,41 +116,40 @@ export class EmailApp extends React.Component {
                 {this.state.showComposeEmail && (
                     <EmailCompose onAddEmail={this.onAddEmail} />
                 )}
-                <EmailNav />
-                <Switch>
-                    <Route path="/email/:emailId" component={EmailDetails} />
-                    <Route
-                        // sent
-                        path="/email/sent"
-                        render={() => (
-                            <EmailList
-                                emails={this.getEmailsForDisplay('sent')}
-                                onReadEmail={this.onReadEmail}
-                                onDelEmail={this.onDelEmail}
-                                onMarkUnread={this.onMarkUnread}
-                            />
-                        )}
-                    />
-                    <Route
-                        // inbox
-                        path="/email"
-                        render={() => (
-                            <EmailList
-                                emails={this.getEmailsForDisplay('inbox')}
-                                onReadEmail={this.onReadEmail}
-                                onDelEmail={this.onDelEmail}
-                                onMarkUnread={this.onMarkUnread}
-                            />
-                        )}
-                    />
-                </Switch>
-                <h2>Sent: </h2>
-                <EmailList
-                    emails={this.getEmailsForDisplay('sent')}
-                    onReadEmail={this.onReadEmail}
-                    onDelEmail={this.onDelEmail}
-                    onMarkUnread={this.onMarkUnread}
-                />
+                <section className="main-content">
+                    <EmailNav />
+                    <Switch>
+                        <Route
+                            // sent
+                            path="/email/sent"
+                            render={() => (
+                                <EmailList
+                                    emails={this.getEmailsForDisplay('sent')}
+                                    onReadEmail={this.onReadEmail}
+                                    onDelEmail={this.onDelEmail}
+                                    onMarkUnread={this.onMarkUnread}
+                                />
+                            )}
+                        />
+                        <Route
+                            // inbox
+                            path="/email/inbox"
+                            render={() => (
+                                <EmailList
+                                    emails={this.getEmailsForDisplay('inbox')}
+                                    onReadEmail={this.onReadEmail}
+                                    onDelEmail={this.onDelEmail}
+                                    onMarkUnread={this.onMarkUnread}
+                                />
+                            )}
+                        />
+                        <Route
+                            path="/email/:emailId"
+                            component={EmailDetails}
+                        />
+                        <Route path="/email" component={EmailWelcome} />
+                    </Switch>
+                </section>
             </section>
         );
     }

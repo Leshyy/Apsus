@@ -13,7 +13,7 @@ export function EmailPreview({ email, onReadEmail, onDelEmail, onMarkUnread }) {
                         onDelEmail(ev, email.id);
                     }}
                 >
-                    del
+                    &#x1F5D1;
                 </button>
                 <button
                     onClick={(ev) => {

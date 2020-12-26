@@ -11,8 +11,6 @@ export class EmailCompose extends React.Component {
         const currField = ev.target.name;
         const emailCopy = { ...this.state.email };
         if (currField === 'receivers') {
-            // console.log(ev.target.value.split(' '));
-            // const recivers = ev.target.value.split(' ');
             emailCopy[currField] = [ev.target.value];
         } else emailCopy[currField] = ev.target.value;
         this.setState({ email: emailCopy });
@@ -21,7 +19,7 @@ export class EmailCompose extends React.Component {
     render() {
         const { email } = this.state;
         return (
-            <section className="email-add main-layout">
+            <section className="email-add">
                 <form action="">
                     <input
                         name="receivers"

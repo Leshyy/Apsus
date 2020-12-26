@@ -26,11 +26,14 @@
 .email-preview > *:first-child {
     padding-left: 5px;
 }
-
+.email-preview .email-btns {
+    display: flex;
+}
 .email-preview button {
+    font-size: 1.3rem;
     border: none;
     margin-left: 5px;
-    padding: 10px 5px;
+    padding: 5px 7px;
     font-weight: bold;
     color: rgb(46, 46, 46);
     transition: all 0.3s ease;

@@ -1,3 +1,7 @@
+.email-list {
+    width: 90%;
+}
+
 .email-list > :last-child {
     border-bottom: 1px solid rgb(70, 70, 70);
 }

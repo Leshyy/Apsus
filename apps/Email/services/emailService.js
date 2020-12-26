@@ -41,7 +41,7 @@ function getEmailById(emailId) {
 
 function add(email) {
     email['id'] = utilService.makeId();
-    email['sender'] = 'tamir.leshetz@gmail.com';
+    email['sender'] = 'Me';
     email['sentAt'] = Date.now();
     email['inbox'] = false;
     email['isRead'] = false;
@@ -84,8 +84,8 @@ function _createEmails() {
 
 function _getDemoEmails() {
     return [
-        createEmail('Tamir', ['Eran'], 'hello', 'hi, nice to meet you'),
-        createEmail('Eran', ['Tamir'], 'hiya', 'hi, zoom meeting today'),
-        createEmail('Margad', ['Tamir', 'Eran'], 'team', 'hi, nice cmps'),
+        createEmail('Tamir', ['Eran'], 'help', 'how do i make a footer?'),
+        createEmail('Eran', ['Tamir'], 'help', 'ani mevulbal'),
+        createEmail('Tamir', ['Eran'], 'hungry', 'im hungry...'),
     ];
 }
