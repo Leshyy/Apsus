@@ -2,6 +2,8 @@
 @import './email-details.css';
 @import './email-add.css';
 @import './email-list.css';
+@import './email-filter.css';
+@import './email-app.css';
 
 /* general */
 
@@ -15,4 +17,8 @@ textarea {
 /* helpers */
 .email-read {
     background-color: rgb(176, 187, 153);
+}
+.main-layout {
+    max-width: 1280px;
+    margin: 0 auto;
 }

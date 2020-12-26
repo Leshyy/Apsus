@@ -21,7 +21,7 @@ export class EmailCompose extends React.Component {
     render() {
         const { email } = this.state;
         return (
-            <section className="email-add">
+            <section className="email-add main-layout">
                 <form action="">
                     <input
                         name="receivers"

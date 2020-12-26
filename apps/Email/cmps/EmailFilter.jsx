@@ -18,7 +18,7 @@ export class EmailFilter extends React.Component {
 
     render() {
         return (
-            <section className="pet-filter">
+            <section className="email-filter">
                 <input
                     type="text"
                     name="txt"

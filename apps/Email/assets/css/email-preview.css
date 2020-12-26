@@ -21,7 +21,6 @@
 }
 .email-preview:hover {
     background-color: rgb(144, 144, 144);
-    box-shadow: -1px 0px 13px 5px #737373;
     font-size: 1.1em;
 }
 .email-preview > *:first-child {
@@ -38,4 +37,8 @@
 }
 .email-preview button:hover {
     background-color: rgb(189, 189, 189);
+}
+
+.email-preview .email-preview-text h2 {
+    font-size: 1.1rem;
 }
