@@ -60,7 +60,7 @@ export class NoteInput extends React.Component {
 
     clearInput = () => {
         const note = {
-            type: '',
+            type: 'textNote',
             id: null,
             title: '',
             label: '',
@@ -76,6 +76,19 @@ export class NoteInput extends React.Component {
         this.setState({ note:note,inputColor:null });
 
     };
+
+    onHandlePinning=()=>{
+        const noteCopy = { ...this.state.note }
+        if (noteCopy.isPinned===false){
+            noteCopy.isPinned=true
+            this.setState({note:noteCopy})
+            console.log('pinned truthed');
+        }else {
+            noteCopy.isPinned=false
+            this.setState({note:noteCopy})
+            console.log('pinned falsed');
+        }
+    }
 
 
     render() {
@@ -129,12 +142,13 @@ export class NoteInput extends React.Component {
                             <button type="button" name="style" value ="antiquewhite" title="off-white" style={{backgroundColor:"antiquewhite"}}onClick={this.onHandleChange}></button>
                             <button type="button" name="style" value ="lightblue" title="blue" style={{backgroundColor:"lightblue"}}onClick={this.onHandleChange}></button>
                             <button type="button" name="style" value ="lightgoldenrodyellow" title="light yellow" style={{backgroundColor:"lightgoldenrodyellow"}}onClick={this.onHandleChange}></button>
-                            <button type="button" name="style" value ="orange" title="orange" style={{backgroundColor:"orange"}}onClick={this.onHandleChange}></button>
+                            <button type="button" name="style" value ="darkorange" title="orange" style={{backgroundColor:"darkorange"}}onClick={this.onHandleChange}></button>
                             <button type="button" name="style" value ="indianred" title="light red" style={{backgroundColor:"indianred"}}onClick={this.onHandleChange}></button>
                             <button type="button" name="style" value ="lightgrey" title="grey" style={{backgroundColor:"lightgrey"}}onClick={this.onHandleChange}></button>
-                            <button type="button" name="style" value ="mediumpurple" title="purple " style={{backgroundColor:"mediumpurple"}}onClick={this.onHandleChange}></button>
+                            <button type="button" name="style" value ="rosybrown" title="brownish" style={{backgroundColor:"rosybrown"}}onClick={this.onHandleChange}></button>
                         </div>
-                        <div className="control-menu" >
+                        <div className="control-menu">
+                            <button type="button" className={(this.state.note.isPinned)?"pinning-btn pinned":"pinning-btn"} name="isPinned" onClick={this.onHandlePinning}> Pin/Unpin</button>
                             <button type="button" className="clear-btn" onClick={this.clearInput}> Clear/Unselect</button>
                             <button type="submit" className="submit-btn">Save</button>
                         </div>

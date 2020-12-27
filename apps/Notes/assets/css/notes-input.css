@@ -1,17 +1,12 @@
 
-.note-input-main{
+.notes-form {
     /* z-index: 1;
     position: fixed; */
-}
-
-.notes-form {
-    /* position: fixed; */
     display: flex;
     flex-direction: column;
     width: 100%;
-    align-items: flex-end;
-    margin-top: 50px;
-    margin-right: 25px;
+    align-items: center;
+    margin-top: 30px;
     margin-bottom: 15px;
     border-radius: 5px;
 }
@@ -19,7 +14,7 @@
 .notes-form input {
     border: 1px solid lightgray;
     padding: 5px;
-    width: 50%;
+    width: 80%;
     background-color: rgb(245, 244, 243);
     border-radius: 1px;
 }
@@ -29,35 +24,40 @@
     border-top: none;
     padding: 5px;
     flex-grow: 1;
-    width: 50%;
+    width: 80%;
     height: 70px;
     background-color: rgb(245, 244, 243);
     border-radius: 1px;
 }
 
 .notes-form input:focus {
-    outline-color: rgb(127, 195, 127);
-    outline-width: 0.01rem;
+    outline-color: linen;
+    outline-width: 0.5px;
 }
 
 .notes-form textarea:focus {
-    outline-color: rgb(127, 195, 127);
-    outline-width: 0.01rem;
+    outline-color: linen;
+    outline-width: 0.5px;
 }
+
 
 .notes-inputs {
     display: flex;
 }
 
 .input-btn {
-    width: 50%;
+    width: 80%;
     display: flex;
     justify-content: space-between;
-    margin-top: 2px;
+    margin-top:1px;
+    padding: 3px;
+    background-color: rgb(207, 205, 205);
+    border-radius:2px;
+    border: none;
 }
 
 .btn-on {
-    background-color:rgb(127, 195, 127);
+    background-color:rgb(136, 202, 136);
 }
 
 .btn-off {
@@ -70,28 +70,69 @@
 }
 
 .color-menu button {
-    border-radius: 50%;
+    border-radius: 80%;
     width: 18px;
     height: 18px;
     margin-left:5px;
     margin-right: 5px;
+    border: 1.5px solid rgb(241, 233, 233);;
 }
+
 .color-menu button:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
     transition: ease .2s;
 }
 
+.color-menu button:focus{
+    outline:none;
+}
+
 .type-menu button {
+ border-radius: 5px;
  width: 50px;
+ border: 2px solid rgb(236, 229, 229);
+}
+
+.type-menu button:hover {
+    transform: scale(1.02);
+}
+
+.type-menu button:focus{
+   outline-color:  rgb(129, 195, 129);
 }
 
 .clear-btn {
     margin-right: 2px;
+    border-radius: 5px;
+    border: 2px solid rgb(236, 229, 229);
 }
 .clear-btn:hover {
-  background-color: rgb(156, 223, 156);
+  background-color: rgb(233, 217, 146);
 }
 
+.submit-btn {
+    border-radius: 5px;
+    border: 2px solid rgb(236, 229, 229);
+}
 .submit-btn:hover {
-    background-color: rgb(156, 223, 156);
-  }
+    background-color: rgb(240, 221, 151);
+}
+
+.pinned {
+background-color: lemonchiffon;
+}
+
+.pinning-btn{
+    margin-right: 2px;
+    border-radius: 5px;
+    border: 2px solid rgb(236, 229, 229);
+}
+
+
+.pinning-btn:hover{
+    transform: scale(1.02);
+}
+
+.control-menu button:focus{
+    outline:none;
+}

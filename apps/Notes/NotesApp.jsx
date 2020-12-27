@@ -83,10 +83,10 @@ export class NotesApp extends React.Component {
 
     render() {
         return (
-            <section className="main-layout">
+            <section>
                 <NoteFilter setFilter={this.onSetFilter}/>
-                <NoteInput onSaveNote={this.onSaveNote} />
-                <section>
+                <section className="main-layout-notes">
+                    <NoteInput onSaveNote={this.onSaveNote} />
                     {this.state.notes.length && (
                         <NoteList
                             notes={this.getNotesForDisplay()}

@@ -1,0 +1,35 @@
+
+.about-flex {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.about-flex p {
+    font-size: 1.2em;
+    max-width: 700px;
+    margin: 20px;
+    padding: 10px;
+
+}
+
+.about-flex img {
+    border-radius: 50%;
+    width: 200px;
+    height:200px;
+    margin:20px;
+
+}
+
+.about {
+    margin-top:50px;
+}
+
+.about h3 {
+    margin: 15px;
+}
+
+@media (max-width:450px ){
+    .about-flex{
+        flex-direction: column;
+    }
+}

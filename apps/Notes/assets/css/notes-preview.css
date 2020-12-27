@@ -69,13 +69,17 @@
     font-weight: bold;
     background-color: gainsboro;
     border: none;
+    border: 1px solid lightgray;
 }
 
+.pin-btn:focus {
+    outline: none;
+}
 .currently-pinned {
     background-color:rgb(245, 243, 146);
 }
 
 .todo-done {
-    text-decoration:overline;
+    text-decoration:line-through;
 }
 

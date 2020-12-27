@@ -5,11 +5,14 @@
 /* cmps */
 
 @import './basics/AppHeader.css';
+@import './basics/homepage.css';
+@import './basics/aboutpage.css';
 
 /* apps */
 
 @import '../../apps/Email/assets/css/email-main.css';
 @import '../../apps/Notes/assets/css/notes-main.css';
+
 
 @media screen and (max-width: 700px) {
     .app-header-nav {
@@ -40,6 +43,6 @@
     display: block;
     margin: 0;
     padding: 0 5px;
-    background-color: rgb(181, 238, 167);
+    background-color:  rgb(119, 219, 161);
     width: 100%;
 }

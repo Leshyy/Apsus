@@ -2,3 +2,36 @@
 @import "./notes-preview.css";
 @import "./notes-input.css";
 @import "./notes-filter.css";
+
+
+.main-layout-notes{
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+@media (max-width:1280px ){
+    .main-layout-notes{
+        max-width: 1000px;
+    }
+}
+
+@media (max-width:820px ){
+    .main-layout-notes{
+        max-width: 500px;
+    }
+    .input-btn{
+        flex-direction: column;
+        align-items: center;
+    }
+    .input-btn >*{
+        margin-bottom: 10px;
+    }
+    .note-filter{
+        text-align: center;
+    }
+}
+@media (max-width:450px ){
+    .main-layout-notes{
+        max-width: 310px;
+    }
+}
