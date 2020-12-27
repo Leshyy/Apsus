@@ -53,7 +53,7 @@
 }
 
 .note-todos li{
-    list-style-type:disc;
+    list-style-type:none;
     margin-bottom: 10px;
 }
 
@@ -81,5 +81,9 @@
 
 .todo-done {
     text-decoration:line-through;
+}
+
+.check-todos:focus{
+    outline: none;
 }
 
