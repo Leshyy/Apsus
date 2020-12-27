@@ -1,4 +1,4 @@
-import {} from ;
+
 export function AboutPage() {
     return (
         <section className="main-layout-notes">
