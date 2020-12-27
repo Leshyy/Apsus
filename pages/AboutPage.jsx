@@ -1,4 +1,4 @@
-
+import {} from ;
 export function AboutPage() {
     return (
         <section className="main-layout-notes">
@@ -17,7 +17,7 @@ export function AboutPage() {
                     luckily he has Tamir Leshetz on his side and together they can even make google try to search after them. Eran has lived all over the world, yet he is now unemplyed and looking for a nice break!
                     He enjoyed doing this notes project, and will continue writing notes to himself with this app, someday maybe his notes will be fulfilled.
                 </p>
-                <img src="../assets/img/profile-eran.jpg" />
+                <img src="/assets/img/profile-eran.jpg" />
                 </div>
             </article>
         </section>
