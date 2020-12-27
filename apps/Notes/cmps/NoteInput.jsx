@@ -132,10 +132,10 @@ export class NoteInput extends React.Component {
                         ></textarea>
                         <div className="input-btn"> 
                         <div className="type-menu" >    
-                            <button type="button" name="type" value="textNote" className={(noteType==='textNote')? 'btn-on':'btn-off'} onClick={this.onHandleChange}>text</button>
-                            <button type="button" name="type" value="imgNote" className={(noteType==='imgNote')? 'btn-on':'btn-off'} onClick={this.onHandleChange}>img</button>
-                            <button type="button" name="type" value="videoNote" className={(noteType==='videoNote')? 'btn-on':'btn-off'} onClick={this.onHandleChange}>vid</button>
-                            <button type="button" name="type" value="todoNote" className={(noteType==='todoNote')? 'btn-on':'btn-off'} onClick={this.onHandleChange}>todos</button>
+                            <button type="button" name="type" value="textNote" className={(noteType==='textNote')? 'btn-on':'btn-off'} onClick={this.onHandleChange}>Text</button>
+                            <button type="button" name="type" value="imgNote" className={(noteType==='imgNote')? 'btn-on':'btn-off'} onClick={this.onHandleChange}>Img</button>
+                            <button type="button" name="type" value="videoNote" className={(noteType==='videoNote')? 'btn-on':'btn-off'} onClick={this.onHandleChange}>Vid</button>
+                            <button type="button" name="type" value="todoNote" className={(noteType==='todoNote')? 'btn-on':'btn-off'} onClick={this.onHandleChange}>Todos</button>
                         </div>
                         <div className="color-menu" >
                             <button type="button" name="style" value ="darkseagreen" title="green" style={{backgroundColor:"darkseagreen"}}onClick={this.onHandleChange}></button>

@@ -32,14 +32,13 @@
 
 .notes-form input:focus {
     outline-color: linen;
-    outline-width: 0.5px;
+    outline-width: 1px;
 }
 
 .notes-form textarea:focus {
     outline-color: linen;
-    outline-width: 0.5px;
+    outline-width: 1px;
 }
-
 
 .notes-inputs {
     display: flex;
@@ -112,6 +111,7 @@
 
 .submit-btn {
     border-radius: 5px;
+    font-weight: bold;
     border: 2px solid rgb(236, 229, 229);
 }
 .submit-btn:hover {
