@@ -17,7 +17,7 @@ export function AboutPage() {
                     luckily he has Tamir Leshetz on his side and together they can even make google try to search after them. Eran has lived all over the world, yet he is now unemplyed and looking for a nice break!
                     He enjoyed doing this notes project, and will continue writing notes to himself with this app, someday maybe his notes will be fulfilled.
                 </p>
-                <img src="/assets/img/eranpic.jpg"/>
+                <img src="https://ca.slack-edge.com/T01C3G80Y9K-U01DZHFJ9U0-19d085009943-512"/>
                 </div>
             </article>
         </section>
