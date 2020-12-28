@@ -91,7 +91,7 @@ function addNote(note) {
     if (note.type==='videoNote'){
       note.info.content=createEmbededLink(note.info.content);
     }
-  gNotes.push(note);
+  gNotes.unshift(note);
   storageService.save(gNotes, NOTES_KEY);
   return Promise.resolve();
 }
@@ -117,7 +117,7 @@ function _getDemoNotes() {
     createNote("textNote", "Haiku for Eran", { content: "O snail,\nClimb Mount Fuji\nBut slowly, slowly!"}),
     createNote("textNote", "Haiku for Tamir", { content: "Everything I touch,\nwith tenderness, alas,\npricks like a bramble." }),
     createNote("todoNote", "things to do after sprint:", {content:'sleep, buy tamir a burger, take a shower,digest what you\'ve learned, have some icecream'}),
-    createNote("textNote", "לתמירוס תודה!", { content: "על כל העבודה\nהיית חבר ואיש צוות נפלא\n!ויאללה יאללה הילולה" }),
+    createNote("textNote",  "אני גיטרה הרוח מנגן עלי", { content: "לא התייאשתי מימי\nכי מה שלא קרה במאי\nיקרה בעזרת השם ודאי\nביוני יולי" }),
     createNote("videoNote", "Lhasa - La Maree Haute", {
       content: "https://www.youtube.com/watch?v=hRofRbkGi5k&ab_channel=UtkanBoyacioglu",
     }),createNote("imgNote", "Snufkin playing his harmonica", {
