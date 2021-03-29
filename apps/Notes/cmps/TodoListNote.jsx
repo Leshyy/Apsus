@@ -10,10 +10,11 @@ export class TodoListNote extends React.Component {
     return (
       <div className="note-todos">
           <h4>{this.props.title}</h4>
-          <br></br>
+          <ul>
           {todoList = todoList.map((todo, idx) => {
-            return <li key={idx}><input className="check-todos" type="checkbox"></input>{todo}</li>
+            return <li key={idx} className="todo-item"> {todo}</li>
           })}
+          </ul>
       </div>
     )
   }
