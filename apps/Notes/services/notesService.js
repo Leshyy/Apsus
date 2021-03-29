@@ -19,7 +19,7 @@ _createNotes();
 
 function createEmbededLink(link) {
   link = link.replace('watch?v=', 'embed/');
-  console.log('link after replace', link)
+  console.log('link after replace', link)
   if (link.split('').findIndex((char) => char === '&') === -1) {
     console.log(link);
     return link;
@@ -60,13 +60,14 @@ function getNoteById(noteId) {
   return Promise.resolve(notes);
 }
 
-function pinNote(noteId){
-  this.getNoteById(noteId).then(note=>{
-    if(!note.isPinned) {
-      note.isPinned=true
-   } else {note.isPinned=false
-   }
-   storageService.save(gNotes, NOTES_KEY);
+function pinNote(noteId) {
+  this.getNoteById(noteId).then(note => {
+    if (!note.isPinned) {
+      note.isPinned = true
+    } else {
+      note.isPinned = false
+    }
+    storageService.save(gNotes, NOTES_KEY);
   })
   return Promise.resolve()
 }
@@ -75,8 +76,8 @@ function updateNote(note) {
   const noteToUpdate = {
     ...note,
   };
-  if (noteToUpdate.type==='videoNote'){
-    noteToUpdate.info.content=createEmbededLink(noteToUpdate.info.content);
+  if (noteToUpdate.type === 'videoNote') {
+    noteToUpdate.info.content = createEmbededLink(noteToUpdate.info.content);
   }
   const notesCopy = [...gNotes];
   const noteIdx = notesCopy.findIndex((note) => note.id === noteToUpdate.id);
@@ -88,9 +89,9 @@ function updateNote(note) {
 
 function addNote(note) {
   note["id"] = utilService.makeId();
-    if (note.type==='videoNote'){
-      note.info.content=createEmbededLink(note.info.content);
-    }
+  if (note.type === 'videoNote') {
+    note.info.content = createEmbededLink(note.info.content);
+  }
   gNotes.unshift(note);
   storageService.save(gNotes, NOTES_KEY);
   return Promise.resolve();
@@ -114,13 +115,13 @@ function _createNotes() {
 
 function _getDemoNotes() {
   return [
-    createNote("textNote", "Haiku for Eran", { content: "O snail,\nClimb Mount Fuji\nBut slowly, slowly!"}),
-    createNote("textNote", "Haiku for Tamir", { content: "Everything I touch,\nwith tenderness, alas,\npricks like a bramble." }),
-    createNote("todoNote", "things to do after sprint:", {content:'sleep, buy tamir a burger, take a shower,digest what you\'ve learned, have some icecream'}),
-    createNote("textNote",  "אני גיטרה הרוח מנגן עלי", { content: "לא התייאשתי מימי\nכי מה שלא קרה במאי\nיקרה בעזרת השם ודאי\nביוני יולי" }),
+    createNote("textNote", "Haiku # 1", { content: "O snail,\nClimb Mount Fuji\nBut slowly, slowly!" }),
+    createNote("todoNote", "Things to do after sprint:", { content: 'sleep, buy tamir a burger, take a shower, have some icecream' }),
     createNote("videoNote", "Lhasa - La Maree Haute", {
       content: "https://www.youtube.com/watch?v=hRofRbkGi5k&ab_channel=UtkanBoyacioglu",
-    }),createNote("imgNote", "Snufkin playing his harmonica", {
+    }),
+    createNote("textNote", "Haiku # 2", { content: "Over the wintery forest\nWinds howl in rage\nWith no leaves to blow" }),
+    createNote("imgNote", "Snufkin playing his harmonica", {
       content:
         "https://pbs.twimg.com/ext_tw_video_thumb/1106065230281478144/pu/img/nFxTCyjOx2bOkSYL.jpg",
     })

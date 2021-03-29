@@ -1,5 +1,16 @@
 .note-list {
-    display: flex;
+    /* display: flex;
     justify-content: space-evenly;
-    flex-wrap: wrap;
+    flex-wrap: wrap; */
+    -webkit-column-count: 4;
+    -moz-column-count: 4;
+    column-count: 4;
+    column-fill: auto;
+    
+
+    -webkit-column-gap: 35px;
+    -moz-column-gap: 35px;
+    column-gap: 35px;
+
+    margin: 20px;
 }

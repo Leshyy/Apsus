@@ -17,6 +17,9 @@
     width: 80%;
     background-color: rgb(245, 244, 243);
     border-radius: 1px;
+    text-align: start;
+    direction: initial;
+    font-size: 15px;
 }
 
 .notes-form textarea {
@@ -28,16 +31,19 @@
     height: 70px;
     background-color: rgb(245, 244, 243);
     border-radius: 1px;
+    text-align: start;
+    direction: initial;
+    font-size: 15px;
 }
 
 .notes-form input:focus {
     outline-color: linen;
-    outline-width: 1px;
+    outline-width: 0px;
 }
 
 .notes-form textarea:focus {
     outline-color: linen;
-    outline-width: 1px;
+    outline-width: 0px;
 }
 
 .notes-inputs {
@@ -119,7 +125,7 @@
 }
 
 .pinned {
-background-color: lemonchiffon;
+background-color: rgb(250, 242, 176);
 }
 
 .pinning-btn{
