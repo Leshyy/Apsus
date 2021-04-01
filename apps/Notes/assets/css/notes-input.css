@@ -75,12 +75,12 @@
 }
 
 .color-menu button {
-    border-radius: 50%;
+    border-radius: 9px;
     width: 18px;
     height: 18px;
     margin-left:5px;
     margin-right: 5px;
-    border: 1.5px solid rgb(241, 233, 233);;
+    border: 1px solid rgb(241, 233, 233);
 }
 
 .color-menu button:hover {
