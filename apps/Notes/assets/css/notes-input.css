@@ -75,7 +75,7 @@
 }
 
 .color-menu button {
-    border-radius: 9px 9px 9px 9px;
+    border-radius: 50% 50% 50% 50%;
     width: 18px;
     height: 18px;
     margin-left:5px;
