@@ -5,11 +5,11 @@
 }
 
 .filter-bar{
+    font-size: 0.8rem;
     margin-right: 15px;
     border-radius: 5px;
     padding:10px;
     border: 1px solid lightgrey;
-    
 }
 
 .filter-bar:focus{

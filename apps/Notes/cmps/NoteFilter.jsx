@@ -22,7 +22,7 @@ export class NoteFilter extends React.Component {
                     type="text"
                     name="txt"
                     value={this.state.filterBy.txt}
-                    placeholder="Search:"
+                    placeholder="Search by text or color"
                     autoComplete="off"
                     onChange={this.handleChange}
                 />
