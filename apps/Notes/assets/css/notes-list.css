@@ -9,8 +9,8 @@
     
 
     /* -moz-column-gap: 35px; */
-    column-gap: 35px;
-    -webkit-column-gap: 35px;
+    column-gap: 45px;
+    -webkit-column-gap: 45px;
 
     margin: 20px 20px 20px 5px;
 }
