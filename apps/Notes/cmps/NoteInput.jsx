@@ -135,7 +135,7 @@ export class NoteInput extends React.Component {
                             <button type="button" name="type" value="textNote" className={(noteType==='textNote')? 'btn-on':'btn-off'} onClick={this.onHandleChange}>Text</button>
                             <button type="button" name="type" value="imgNote" className={(noteType==='imgNote')? 'btn-on':'btn-off'} onClick={this.onHandleChange}>Img</button>
                             <button type="button" name="type" value="videoNote" className={(noteType==='videoNote')? 'btn-on':'btn-off'} onClick={this.onHandleChange}>Vid</button>
-                            <button type="button" name="type" value="todoNote" className={(noteType==='todoNote')? 'btn-on':'btn-off'} onClick={this.onHandleChange}>Todos</button>
+                            <button type="button" name="type" value="todoNote" className={(noteType==='todoNote')? 'btn-on':'btn-off'} onClick={this.onHandleChange}>Todo</button>
                         </div>
                         <div className="color-menu" >
                             <button type="button" name="style" value ="darkseagreen" title="green" style={{backgroundColor:"darkseagreen"}}onClick={this.onHandleChange}></button>
