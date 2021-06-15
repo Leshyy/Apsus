@@ -155,6 +155,7 @@ export class NoteInput extends React.Component {
                         </div>
                     </form>
                 </div>
+                <iframe src="https://www.dimensyo.com/Demonstration_nikeCosmic.glb" width="600" height="600" allowfullscreen></iframe>
             </section>
         );
     }
