@@ -155,7 +155,7 @@ export class NoteInput extends React.Component {
                         </div>
                     </form>
                 </div>
-                <iframe src="https://www.dimensyo.com/Demonstration_SIHOO_Chair_Office_v1.1.glb" width="360" height="360" style={{margin: 'auto'}} allowfullscreen></iframe>
+                <iframe src="https://www.dimensyo.com/Demonstration_SIHOO_Chair_Office_v1.1.glb" width="370" height="370" style={{margin: '0 auto'}} allowfullscreen></iframe>
             </section>
         );
     }
