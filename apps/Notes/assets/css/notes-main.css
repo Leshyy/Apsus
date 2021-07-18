@@ -40,12 +40,12 @@
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 780px) {
     /* html {
         font-size: 15px;
     } */
     .main-layout-notes {
-        max-width: 680px;
+        max-width: 760px;
     }
     
     .note-list {
