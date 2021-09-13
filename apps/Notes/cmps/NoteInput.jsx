@@ -156,7 +156,9 @@ export class NoteInput extends React.Component {
                     </form>
                 </div>
                 {/* {<iframe style={{display:'block', margin: 'auto'}} src="https://www.dimensyo.com/DARYA_Lamp_Terrazzo_30cm.glb" id="Lamp_Terrazzo_30cm.glb" width="360" height="440" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" frameborder="0"></iframe>} */}
-                {<iframe style={{display:'block', margin: 'auto'}} src="https://www.dimensyo.com/Demo_Ring_DHR08.glb" id="Ring_DHR08.glb" width="360" height="440" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" frameborder="0"></iframe>}
+                <div>
+                    {/* <iframe style={{display:"block", margin: 'auto'}} allowtransparency="true" src="https://library.dimensyo.com/Demo_Ring_DHR08.glb" id="Ring_DHR08.glb" width="360" height="440" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" frameborder="0"></iframe> */}
+                </div>
             </section>
         );
     }
